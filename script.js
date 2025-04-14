@@ -43,3 +43,34 @@ function buyItem(button) {
     // Open the email client with the pre-filled details
     window.location.href = `mailto:${sellerEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
+
+// Function to handle bidding on an item
+function bidItem(button) {
+    // Get the parent category element
+    const categoryElement = button.closest('.category');
+
+    // Extract item details
+    const itemName = categoryElement.querySelector('h3').innerText;
+    const itemDescription = categoryElement.querySelector('.description').innerText.replace('Description: ', '');
+    const itemPrice = categoryElement.querySelector('.price').innerText.replace('Asking Price: ', '');
+
+    // Prompt the client to enter their bid amount
+    const bidAmount = prompt(`Enter your bid for ${itemName} (${itemPrice}):`);
+
+    if (bidAmount) {
+        // Seller's email
+        const sellerEmail = "danychege28@gmail.com";
+
+        // Construct the email subject and body
+        const subject = `Bid for ${itemName}`;
+        const body = `Hello,\n\nI would like to place a bid for the following item:\n\n` +
+                     `Item Name: ${itemName}\nDescription: ${itemDescription}\n` +
+                     `Asking Price: ${itemPrice}\nMy Bid: KES ${bidAmount}\n\n` +
+                     `Please let me know if my bid is accepted.\n\nThank you.`;
+
+        // Open the email client with the pre-filled details
+        window.location.href = `mailto:${sellerEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    } else {
+        alert('Bid canceled.');
+    }
+}
