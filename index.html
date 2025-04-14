@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHRONICS EMPIRE</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header>
+        <h1 style="color: rgb(238, 176, 60)">WELCOME</h1>
+        <img src="logo/chronics empire logo.png" alt="Profile Image" class="profile-img">
+        <nav>
+            <a href="#about">About</a>
+            <a href="#categories">Categories</a>
+            <a href="#sell">Sell to Us</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2 style="color: rgb(238, 176, 60)" >ABOUT US</h2>
+        <div class="about-content">
+            <p>We specialize in the trade of both new and second-hand items.</p>
+            <p>Our commitment to excellence ensures customer satisfaction.</p>
+            <p>We are located in Bahati Sub-county, Nakuru.</p>
+        </div>
+    </section>
+
+    <section id="categories">
+        <h2 style="color: rgb(238, 176, 60)">ITEMS FOR SALE</h2>
+        <div class="category-list">
+            <!-- Electronics -->
+            <div class="category">
+                <h3 style="color: rgb(238, 176, 60)">Electronics</h3>
+                <img src="electronics.jpg" alt="Electronics">
+                <p class="description">Description: High-quality second-hand.</p>
+                <p class="price">Asking Price: $200 - $1000</p>
+                <button onclick="buyItem(this)">Buy</button>
+            </div>
+
+            <!-- Laptops and Phones -->
+            <div class="category">
+                <h3 style="color: rgb(238, 176, 60)">Laptops and Phones</h3>
+                <img src="laptops.jpg" alt="Laptops and Phones">
+                <p class="description">Description: High-quality second-hand laptops and phones.</p>
+                <p class="price">Asking Price: $300 - $1500</p>
+                <button onclick="buyItem(this)">Buy</button>
+            </div>
+
+            <!-- Cars -->
+            <div class="category">
+                <h3 style="color: rgb(238, 176, 60)">Cars</h3>
+                <img src="cars.jpg" alt="Cars">
+                <p class="description">Description: Pre-owned cars in excellent condition.</p>
+                <p class="price">Asking Price: $5000 - $20000</p>
+                <button onclick="buyItem(this)">Buy</button>
+            </div>
+
+            <!-- Furniture -->
+            <div class="category">
+                <h3 style="color: rgb(238, 176, 60)">Furniture</h3>
+                <img src="furniture.jpg" alt="Furniture">
+                <p class="description">Description: Stylish and durable furniture.</p>
+                <p class="price">Asking Price: $50 - $500</p>
+                <button onclick="buyItem(this)">Buy</button>
+            </div>
+
+            <!-- Appliances -->
+            <div class="category">
+                <h3 style="color: rgb(238, 176, 60)">Appliances</h3>
+                <img src="appliances.jpg" alt="Appliances">
+                <p class="description">Description: Reliable home appliances.</p>
+                <p class="price">Asking Price: $100 - $800</p>
+                <button onclick="buyItem(this)">Buy</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="sell">
+        <h2 style="color: rgb(238, 176, 60)" >SELL TO US</h2>
+        <form id="sellForm">
+            <label for="userName">Your Name:</label>
+            <input type="text" id="userName" name="userName" required>
+
+            <label for="userEmail">Your Email:</label>
+            <input type="email" id="userEmail" name="userEmail" required>
+
+            <label for="userPhone">Your Phone Number:</label>
+            <input type="tel" id="userPhone" name="userPhone" required>
+
+            <label for="itemName">Item Name:</label>
+            <input type="text" id="itemName" name="itemName" required>
+
+            <label for="itemDescription">Description:</label>
+            <textarea id="itemDescription" name="itemDescription" required></textarea>
+
+            <label for="itemImages">Upload Images:</label>
+            <input type="file" id="itemImages" name="itemImages" accept="image/*" multiple required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <section id="contact">
+        <h2 style="color: rgb(238, 176, 60)" >Contact us</h2>
+        <p>Location:Bahati, Nakuru </p>
+        <section id="contact">
+            <ul>
+                <li><a href="https://www.facebook.com/share/1BNwoFsvXM/?mibextid=qi2Omg" target="_blank"><img src="images/facebook.jpg" alt="Facebook" class="social-icon"> Facebook</a></li>
+                <li><a href="https://wa.me/+254721249887" target="_blank"><img src="images/whatsApp.jpg" alt="WhatsApp" class="social-icon"> WhatsApp</a></li>
+                <li><a href="mailto:chronicsasiyo@gmail.com" target="_blank"><img src="images/email.jpg" alt="Email" class="social-icon"> Email</a></li>
+                <li><a href="tell:+25421249887"><img src="images/phone.jpg" alt="Phone" class="social-icon">Call on: +254 721249887</a></li>
+            </ul>
+        </section>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 CHRONICS EMPIRE. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script src="item.js"></script>
+    <script src="itemcontroller.js"></script>
+    <script src="itemroutes.js"></script>
+    <script src="server.js"></script>
+    <script src="user.js"></script>
+
+</body>
+</html>

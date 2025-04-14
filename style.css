@@ -1,0 +1,374 @@
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    background-color: #000;
+    background-image: url("background/sample\ 1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0;
+}
+
+header {
+    background-color: #000000;
+    padding: 20px;
+    text-align: center;
+    box-shadow: white;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+
+}
+
+.profile-img {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    margin-top: 1rem;
+    border:5px solid rgb(5, 1, 1); /* Adds a white border around the image */
+    box-shadow: 0 0 30px rgb(238, 176, 60); /* Adds a shadow effect */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: #0074D9;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+section {
+    padding: 20px;
+    text-align: center;
+}
+
+#about {
+    display: flex;
+    flex-direction: column; /* Stack heading and content vertically */
+    align-items: center;
+    gap: 20px; /* Space between the heading and content */
+    padding: 20px;
+    text-align: center; /* Center-align the heading */
+    box-shadow: 0 0 10px rgb(238, 176, 60); /* Adds a shadow effect */
+    border: 5px solid black;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Keep the content centered horizontally */
+    gap: 20px; /* Space between the image and text */
+    text-align: center; /* Center-align the text */
+    width: 100%; /* Ensure the content spans the full width */
+}
+
+.about-content img {
+    flex-shrink: 0; /* Prevent the image from shrinking */
+    width: 250px; /* Set a fixed width for the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Keep the circular shape */
+    margin-right: 20px; /* Add spacing between the image and text */
+    align-self: flex-start; /* Align the image to the left */
+}
+
+.about-content p {
+    max-width: 600px; /* Limit the width of the paragraph */
+    line-height: 1.6; /* Improve readability */
+    font-size: 1.2em; /* Increase font size */
+    font-weight: bold; /* Make text bold */
+    text-align: justify; /* Justify text for better readability */
+}
+
+
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    #about {
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+
+    .about-content {
+        flex-direction: column; /* Stack image and text vertically */
+        align-items: center; /* Center-align content */
+        text-align: center; /* Center-align text */
+    }
+
+    .about-content img {
+        margin-right: 0; /* Remove right margin on smaller screens */
+        margin-bottom: 15px; /* Add spacing below the image */
+        align-self: center; /* Center the image on smaller screens */
+    }
+
+    .about-content p {
+        font-size: 1em; /* Slightly reduce font size */
+        max-width: 100%; /* Allow full width for text */
+    }
+
+    .animated-text {
+        max-width: 100%; /* Allow full width for text */
+    }
+
+    body {
+        font-size: 0.9em; /* Reduce font size for smaller screens */
+        padding: 10px;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.8em; /* Reduce header font size */
+    }
+
+    .profile-img {
+        width: 200px; /* Reduce profile image size */
+        height: 200px;
+        margin-top: 10px;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column; /* Stack navigation links vertically */
+        align-items: center;
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 1em; /* Reduce font size for navigation links */
+        margin: 5px 0;
+    }
+
+    #about {
+        padding: 10px; /* Reduce padding for the "ABOUT US" section */
+    }
+
+    .about-content {
+        flex-direction: column; /* Stack image and text vertically */
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-content img {
+        width: 150px; /* Reduce image size */
+        margin-bottom: 15px;
+    }
+
+    .about-content p {
+        font-size: 1em; /* Slightly reduce paragraph font size */
+        max-width: 100%; /* Allow full width for text */
+    }
+
+    #categories {
+        padding: 10px;
+    }
+
+    .category-list {
+        flex-direction: column; /* Stack categories vertically */
+        align-items: center;
+    }
+
+    .category {
+        margin: 10px 0; /* Add spacing between categories */
+    }
+
+    .category img {
+        width: 150px; /* Reduce category image size */
+    }
+
+    form {
+        width: 100%; /* Make form take full width */
+        padding: 10px;
+    }
+
+    form input, form textarea {
+        width: 90%; /* Reduce input and textarea width */
+    }
+
+    form button {
+        width: 90%; /* Make button take full width */
+    }
+
+    footer {
+        font-size: 0.8em; /* Reduce footer font size */
+        padding: 5px;
+    }
+}
+
+/* Additional styles for very small screens (e.g., phones) */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em; /* Further reduce header font size */
+    }
+
+    .profile-img {
+        width: 150px; /* Further reduce profile image size */
+        height: 150px;
+    }
+
+    nav a {
+        font-size: 0.9em; /* Further reduce font size for navigation links */
+    }
+
+    .about-content p {
+        font-size: 0.9em; /* Further reduce paragraph font size */
+    }
+
+    .category img {
+        width: 120px; /* Further reduce category image size */
+    }
+
+    form input, form textarea {
+        width: 100%; /* Make inputs take full width */
+    }
+
+    form button {
+        width: 100%; /* Make button take full width */
+    }
+}
+
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: rgb(238, 176, 60)"
+}
+
+#categories{
+    display: flex;
+    flex-direction: column; /* Stack heading and content vertically */
+    align-items: center;
+    gap: 20px; /* Space between the heading and content */
+    padding: 20px;
+    text-align: center; /* Center-align the heading */
+    box-shadow: 0 0 10px rgb(238, 176, 60); /* Adds a shadow effect */
+    border: 5px solid black;
+
+}
+.category-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.category {
+    margin: 10px;
+}
+
+.category img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.category img:hover {
+    transform: scale(1.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+form label {
+    margin: 10px 0 5px;
+    box-shadow: 0 0 10px rgb(238, 176, 60); /* Adds a shadow effect */
+     border: none;
+}
+
+form input, form textarea {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #0074D9;
+    box-shadow: 0 0 30px rgb(238, 176, 60); /* Adds a shadow effect */
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #0074D9;
+    color: white;
+    border: black;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgb(238, 176, 60); /* Adds a shadow effect */
+  
+}
+
+form button:hover {
+    background-color: #00509e;
+}
+
+social-media img {
+    width: 30px;
+    margin: 0 10px;
+}
+
+#contact {
+    background-color: #000000; /* Light indigo for Contact */
+    box-shadow: 0 0 10px rgb(238, 176, 60); /* Adds a shadow effect */
+    padding: 1rem 0; /* Adjust padding for consistency */
+    border-top: 2px solid  rgb(0, 0, 0); /* Adds a border above the contact section */
+    border-radius: 10px; /* Rounds the corners */
+    margin: 0 1rem; /* Adds spacing on the sides */
+    display: flex; /* Enables Flexbox for layout */
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically */
+    flex-wrap: wrap; /* Allows wrapping of items if needed */
+    gap: 1rem; /* Adds spacing between items */
+}
+
+#contact ul {
+    list-style: none;
+    display: flex; /* Enables Flexbox for the list */
+    justify-content: center; /* Centers the list items horizontally */
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap; /* Allows wrapping of list items */
+    gap: 1rem; /* Adds spacing between list items */
+}
+
+#contact ul li {
+    display: inline-block; /* Makes the list items inline */
+    background-color: rgb(238, 176, 60); /* Button background color */
+    color: white; /* Button text color */
+    padding: 0.5rem 1rem; /* Adds padding for the button-like appearance */
+    border-radius: 10px; /* Rounds the corners */
+    text-align: center; /* Centers the text inside the button */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.social-icon {
+    width: 40px; /* Adjust the width of the icons */
+    height: 40px; /* Adjust the height of the icons */
+    margin-right: 0.5rem; /* Adds spacing between the icon and text */
+    vertical-align: middle; /* Aligns the icon with the text */
+    border-radius: 50%; /* Rounds the corners of the icon */
+    box-shadow: 0 0 10px rgb(238, 176, 60); /* Adds a shadow effect */
+    border: #000;
+}
+
+#contact ul li:hover {
+    background-color: #555; /* Slightly lighter background on hover */
+}
+
+footer {
+    background-color: #001f3f;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    bottom: 0;
+}
+
