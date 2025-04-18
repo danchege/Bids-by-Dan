@@ -1,8 +1,8 @@
 :root {
-    --primary-color: rgb(238, 176, 60);
+    --primary-color: rgb(20, 120, 187);
     --secondary-color: #000;
     --text-color: white;
-    --shadow-effect: 0 0 10px rgb(238, 176, 60);
+    --shadow-effect: 0 0 10px  rgb(20, 120, 187);
     --border-radius: 10px;
     --transition: all 0.3s ease;
 }
@@ -184,7 +184,7 @@ button {
 }
 
 button:hover {
-    background-color: #d4a53a;
+    background-color:  rgb(20, 120, 187)
     transform: translateY(-2px);
 }
 
@@ -302,6 +302,34 @@ form textarea {
     display: block;
     background-color: rgba(255, 0, 0, 0.2);
     border: 1px solid red;
+}
+
+.image-previews {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.image-preview {
+    width: 100px;
+    text-align: center;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+}
+
+.image-preview span {
+    display: block;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #contact {

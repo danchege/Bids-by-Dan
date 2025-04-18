@@ -49,6 +49,131 @@ document.getElementById('sellForm').addEventListener('submit', async function(e)
     }
 });
 
+// File Upload Handler for Formspree
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('sellForm');
+    const fileInput = document.getElementById('itemImages');
+    const formStatus = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Client-side file validation (5MB limit)
+    if (fileInput) {
+        fileInput.addEventListener('change', function() {
+            const files = this.files;
+            let isValid = true;
+            
+            for (let file of files) {
+                if (file.size > 5 * 1024 * 1024) { // 5MB in bytes
+                    formStatus.textContent = `❌ ${file.name} is too large (max 5MB)`;
+                    formStatus.className = 'form-status error';
+                    isValid = false;
+                    this.value = ''; // Clear invalid files
+                    break;
+                }
+                
+                if (!file.type.match('image.*')) {
+                    formStatus.textContent = `❌ ${file.name} is not an image file`;
+                    formStatus.className = 'form-status error';
+                    isValid = false;
+                    this.value = '';
+                    break;
+                }
+            }
+            
+            if (isValid && files.length > 0) {
+                formStatus.textContent = `✅ ${files.length} file(s) ready to upload`;
+                formStatus.className = 'form-status success';
+            }
+        });
+    }
+
+    // Form submission handler
+    if (form) {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // UI Feedback
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Uploading...';
+            formStatus.textContent = '⏳ Uploading files, please wait...';
+            formStatus.className = 'form-status';
+
+            try {
+                const formData = new FormData(form);
+                
+                // Required Formspree file upload headers
+                formData.append('_file_options', JSON.stringify({
+                    formspree: "_self",
+                    size: 5 * 1024 * 1024 // 5MB limit
+                }));
+                
+                formData.append('_subject', 'New Item Submission with Images');
+                formData.append('_replyto', formData.get('email'));
+
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    formStatus.innerHTML = `
+                        ✅ Success!<br>
+                        We've received ${fileInput.files.length} image(s).<br>
+                        We'll contact you at ${formData.get('email')} soon.
+                    `;
+                    formStatus.className = 'form-status success';
+                    form.reset();
+                } else {
+                    throw new Error(result.error || 'Upload failed');
+                }
+            } catch (error) {
+                console.error('Upload error:', error);
+                formStatus.innerHTML = `
+                    ❌ Error: ${error.message}<br>
+                    Please try again or contact us directly.
+                `;
+                formStatus.className = 'form-status error';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit';
+            }
+        });
+    }
+});
+
+// Image preview function (optional)
+function setupImagePreviews() {
+    const fileInput = document.getElementById('itemImages');
+    const previewContainer = document.createElement('div');
+    previewContainer.className = 'image-previews';
+    fileInput.after(previewContainer);
+
+    fileInput.addEventListener('change', function() {
+        previewContainer.innerHTML = '';
+        Array.from(this.files).forEach(file => {
+            if (!file.type.match('image.*')) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const preview = document.createElement('div');
+                preview.className = 'image-preview';
+                preview.innerHTML = `
+                    <img src="${e.target.result}" alt="Preview">
+                    <span>${file.name}</span>
+                `;
+                previewContainer.appendChild(preview);
+            }
+            reader.readAsDataURL(file);
+        });
+    });
+}
+
+// Call this if you want image previews
+// setupImagePreviews();
+
     // Add smooth scrolling to all links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
