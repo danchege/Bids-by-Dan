@@ -174,6 +174,44 @@ function setupImagePreviews() {
 // Call this if you want image previews
 // setupImagePreviews();
 
+    
+    // Bid Form Submission
+    document.getElementById('bidForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const form = this;
+        const submitBtn = document.getElementById('bidSubmitBtn');
+        const formStatus = document.getElementById('bidFormStatus');
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        formStatus.textContent = '';
+
+        try {
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                formStatus.textContent = '✅ Bid submitted successfully!';
+                formStatus.className = 'form-status success';
+                form.reset();
+            } else {
+                throw new Error('Submission failed.');
+            }
+        } catch (err) {
+            formStatus.textContent = `❌ Error: ${err.message}`;
+            formStatus.className = 'form-status error';
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Bid';
+        }
+    });
+
+
     // Add smooth scrolling to all links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -185,24 +223,22 @@ function setupImagePreviews() {
     });
 });
 
+
 function bidItem(button) {
     const categoryElement = button.closest('.category');
     const itemName = categoryElement.querySelector('h3').textContent;
-    const itemDescription = categoryElement.querySelector('.description').textContent;
     const itemPrice = categoryElement.querySelector('.price').textContent;
 
-    const bidAmount = prompt(`Enter your bid for ${itemName} (${itemPrice}):`);
-    
-    if (bidAmount) {
-        const subject = `Bid for ${itemName}`;
-        const body = `Hello BIDS BY DAN,\n\nI would like to place a bid for:\n\n` +
-                     `Item: ${itemName}\nDescription: ${itemDescription}\n` +
-                     `Asking Price: ${itemPrice}\nMy Bid: KES ${bidAmount}\n\n` +
-                     `Please let me know if my bid is acceptable.\n\nThank you.`;
-        
-        window.location.href = `mailto:danychege28@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    }
+    document.getElementById('bidItemName').value = itemName;
+    document.getElementById('bidItemPrice').value = itemPrice;
+
+    document.getElementById('bidModal').style.display = 'flex';
 }
+
+function closeBidModal() {
+    document.getElementById('bidModal').style.display = 'none';
+}
+
 
 function changeImage(thumbnailElement, newImageSrc) {
     // Remove active class from all thumbnails

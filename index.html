@@ -268,5 +268,29 @@
     </footer>
 
     <script src="script.js"></script>
+
+<!-- Bid Form Modal -->
+<div id="bidModal" style="display:none;" class="modal-overlay">
+  <form id="bidForm" action="https://formspree.io/f/mzzelkzy" method="POST">
+    <h3>Submit Your Bid</h3>
+    <input type="hidden" name="_subject" value="New Bid Submission">
+    <input type="hidden" name="item_name" id="bidItemName">
+    <input type="hidden" name="item_price" id="bidItemPrice">
+
+    <label for="bidderName">Your Name:</label>
+    <input type="text" id="bidderName" name="name" required>
+
+    <label for="bidderEmail">Your Email:</label>
+    <input type="email" id="bidderEmail" name="email" required>
+
+    <label for="bidAmount">Your Bid (KES):</label>
+    <input type="number" id="bidAmount" name="bid_amount" required>
+
+    <div class="form-status" id="bidFormStatus"></div>
+    <button type="submit" id="bidSubmitBtn">Submit Bid</button>
+    <button type="button" onclick="closeBidModal()">Cancel</button>
+  </form>
+</div>
 </body>
+
 </html>
