@@ -1,5 +1,5 @@
 :root {
-    --primary-color: rgb(20, 120, 187);
+    --primary-color: rgb(73, 166, 228);
     --secondary-color: #000;
     --text-color: white;
     --shadow-effect: 0 0 10px  rgb(20, 120, 187);
@@ -184,7 +184,7 @@ button {
 }
 
 button:hover {
-    background-color:  rgb(20, 120, 187)
+    background-color:  rgb(20, 120, 187);
     transform: translateY(-2px);
 }
 

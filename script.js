@@ -21,7 +21,7 @@ document.getElementById('sellForm').addEventListener('submit', async function(e)
         
         // Add Formspree-specific fields
         formData.append('_replyto', formData.get('email')); // Auto-reply field
-        formData.append('_cc', 'chronicsasiyo@gmail.com'); // CC your email
+        formData.append('_cc', 'danychege28@gmail.com'); // CC your email
         
         const response = await fetch(form.action, {
             method: 'POST',
@@ -195,7 +195,7 @@ function bidItem(button) {
     
     if (bidAmount) {
         const subject = `Bid for ${itemName}`;
-        const body = `Hello CHRONICS EMPIRE,\n\nI would like to place a bid for:\n\n` +
+        const body = `Hello BIDS BY DAN,\n\nI would like to place a bid for:\n\n` +
                      `Item: ${itemName}\nDescription: ${itemDescription}\n` +
                      `Asking Price: ${itemPrice}\nMy Bid: KES ${bidAmount}\n\n` +
                      `Please let me know if my bid is acceptable.\n\nThank you.`;
