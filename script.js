@@ -2,52 +2,52 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set current year in footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-    // Form submission handling
-    const form = document.getElementById('sellForm');
-    const formStatus = document.getElementById('formStatus');
+    // Form Submission Handler
+document.getElementById('sellForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const form = this;
     const submitBtn = document.getElementById('submitBtn');
+    const formStatus = document.getElementById('formStatus');
+    
+    // UI Feedback
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    formStatus.textContent = '';
+    formStatus.className = '';
 
-    if (form) {
-        form.addEventListener('submit', async function(event) {
-            event.preventDefault();
-            
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
-            formStatus.style.display = 'none';
-
-            try {
-                const formData = new FormData(form);
-                
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    formStatus.textContent = 'Thank you for your submission! We will contact you soon.';
-                    formStatus.className = 'form-status success';
-                    formStatus.style.display = 'block';
-                    form.reset();
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                formStatus.textContent = 'There was a problem with your submission. Please try again or contact us directly.';
-                formStatus.className = 'form-status error';
-                formStatus.style.display = 'block';
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit';
-                
-                // Scroll to show status message
-                formStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    try {
+        const formData = new FormData(form);
+        
+        // Add Formspree-specific fields
+        formData.append('_replyto', formData.get('email')); // Auto-reply field
+        formData.append('_cc', 'chronicsasiyo@gmail.com'); // CC your email
+        
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
             }
         });
+
+        if (response.ok) {
+            formStatus.textContent = '✅ Thank you! Your submission was received. We\'ll contact you soon.';
+            formStatus.className = 'form-status success';
+            form.reset();
+        } else {
+            const error = await response.json();
+            throw new Error(error.error || 'Submission failed. Please try again.');
+        }
+    } catch (error) {
+        console.error('Form error:', error);
+        formStatus.textContent = `❌ Error: ${error.message}`;
+        formStatus.className = 'form-status error';
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit';
     }
+});
 
     // Add smooth scrolling to all links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

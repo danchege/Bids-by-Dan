@@ -215,25 +215,30 @@
 
     <section id="sell">
         <h2>SELL TO US</h2>
-        <form id="sellForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+        <form id="sellForm" action="https://formspree.io/f/mzzelkzy" method="POST" enctype="multipart/form-data">
+            <!-- Formspree Hidden Fields -->
+            <input type="hidden" name="_subject" value="New Sell Request - CHRONICS EMPIRE">
+            <input type="text" name="_gotcha" style="display:none"> <!-- Anti-spam -->
+            
+            <!-- Your Existing Fields (updated with proper names) -->
             <label for="userName">Your Name:</label>
-            <input type="text" id="userName" name="userName" required minlength="2">
-
+            <input type="text" id="userName" name="name" required minlength="2">
+    
             <label for="userEmail">Your Email:</label>
-            <input type="email" id="userEmail" name="userEmail" required>
-
+            <input type="email" id="userEmail" name="email" required>
+    
             <label for="userPhone">Your Phone Number:</label>
-            <input type="tel" id="userPhone" name="userPhone" required pattern="[0-9]{10,15}">
-
+            <input type="tel" id="userPhone" name="phone" required pattern="[0-9]{10,15}">
+    
             <label for="itemName">Item Name:</label>
-            <input type="text" id="itemName" name="itemName" required>
-
+            <input type="text" id="itemName" name="item_name" required>
+    
             <label for="itemDescription">Description:</label>
-            <textarea id="itemDescription" name="itemDescription" required minlength="10"></textarea>
-
+            <textarea id="itemDescription" name="item_description" required minlength="10"></textarea>
+    
             <label for="itemImages">Upload Images (Max 5MB each):</label>
-            <input type="file" id="itemImages" name="itemImages" accept="image/*" multiple>
-
+            <input type="file" id="itemImages" name="item_images" accept="image/*" multiple>
+    
             <div class="form-status" id="formStatus"></div>
             <button type="submit" id="submitBtn">Submit</button>
         </form>
@@ -246,13 +251,13 @@
             <li><a href="https://www.facebook.com/share/1BNwoFsvXM/?mibextid=qi2Omg" target="_blank" rel="noopener noreferrer">
                 <img src="images/facebook.jpg" alt="Facebook" class="social-icon"> Facebook
             </a></li>
-            <li><a href="https://wa.me/+254721249887" target="_blank" rel="noopener noreferrer">
+            <li><a href="https://wa.me/+254713332171" target="_blank" rel="noopener noreferrer">
                 <img src="images/whatsApp.jpg" alt="WhatsApp" class="social-icon"> WhatsApp
             </a></li>
-            <li><a href="mailto:chronicsasiyo@gmail.com">
+            <li><a href="mailto:danychege28@gmail.com">
                 <img src="images/email.jpg" alt="Email" class="social-icon"> Email
             </a></li>
-            <li><a href="tel:+254721249887">
+            <li><a href="tel:+254713332171">
                 <img src="images/phone.jpg" alt="Phone" class="social-icon"> Call: +254 721249887
             </a></li>
         </ul>
