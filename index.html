@@ -24,7 +24,6 @@
         <h2>ABOUT US</h2>
         <div class="about-content">
             <p>We specialize in the trade of both new and second-hand items.</p>
-            <p>Our commitment to excellence ensures customer satisfaction.</p>
             <p>We are located in Bahati Sub-county, Nakuru.</p>
         </div>
     </section>
@@ -35,88 +34,178 @@
             <!-- Electronics - Item 1 -->
             <div class="category">
                 <h3>Samsung Smart TV</h3>
-                <img src="images/electronics/tv.jpg" alt="Samsung Smart TV" loading="lazy">
+                <div class="image-gallery">
+                    <div class="main-image">
+                        <img src="images/electronics/tv1.jpg" alt="Samsung Smart TV front view" loading="lazy">
+                    </div>
+                    <div class="thumbnail-container">
+                        <img src="images/electronics/tv1.jpg" alt="Front view" class="thumbnail active" onclick="changeImage(this, 'images/electronics/tv1.jpg')">
+                        <img src="images/electronics/tv2.jpg" alt="Side view" class="thumbnail" onclick="changeImage(this, 'images/electronics/tv2.jpg')">
+                        <img src="images/electronics/tv3.jpg" alt="Remote control" class="thumbnail" onclick="changeImage(this, 'images/electronics/tv3.jpg')">
+                    </div>
+                </div>
                 <p class="description">55-inch 4K UHD Smart TV with HDR. Excellent condition with remote and stand included.</p>
                 <p class="price">KES 45,000</p>
                 <button onclick="bidItem(this)">Bid</button>
             </div>
-    
+
             <!-- Electronics - Item 2 -->
             <div class="category">
                 <h3>Sony Sound System</h3>
-                <img src="images/electronics/sound-system.jpg" alt="Sony Sound System" loading="lazy">
+                <div class="image-gallery">
+                    <div class="main-image">
+                        <img src="images/electronics/sound1.jpg" alt="Sony Sound System front view" loading="lazy">
+                    </div>
+                    <div class="thumbnail-container">
+                        <img src="images/electronics/sound1.jpg" alt="Main unit" class="thumbnail active" onclick="changeImage(this, 'images/electronics/sound1.jpg')">
+                        <img src="images/electronics/sound2.jpg" alt="Speakers" class="thumbnail" onclick="changeImage(this, 'images/electronics/sound2.jpg')">
+                        <img src="images/electronics/sound3.jpg" alt="Remote control" class="thumbnail" onclick="changeImage(this, 'images/electronics/sound3.jpg')">
+                    </div>
+                </div>
                 <p class="description">Premium 5.1 channel home theater system with Bluetooth connectivity. Like new condition.</p>
                 <p class="price">KES 32,000</p>
                 <button onclick="bidItem(this)">Bid</button>
             </div>
-    
+
             <!-- Laptops and Phones - Item 1 -->
             <div class="category">
                 <h3>MacBook Pro 2020</h3>
-                <img src="images/laptops/macbook.jpg" alt="MacBook Pro" loading="lazy">
+                <div class="image-gallery">
+                    <div class="main-image">
+                        <img src="images/laptops/macbook1.jpg" alt="MacBook Pro front view" loading="lazy">
+                    </div>
+                    <div class="thumbnail-container">
+                        <img src="images/laptops/macbook1.jpg" alt="Front view" class="thumbnail active" onclick="changeImage(this, 'images/laptops/macbook1.jpg')">
+                        <img src="images/laptops/macbook2.jpg" alt="Keyboard view" class="thumbnail" onclick="changeImage(this, 'images/laptops/macbook2.jpg')">
+                        <img src="images/laptops/macbook3.jpg" alt="Side view" class="thumbnail" onclick="changeImage(this, 'images/laptops/macbook3.jpg')">
+                    </div>
+                </div>
                 <p class="description">13-inch, M1 chip, 8GB RAM, 256GB SSD. Lightly used with original box and accessories.</p>
                 <p class="price">KES 95,000</p>
                 <button onclick="bidItem(this)">Bid</button>
             </div>
-    
+
             <!-- Laptops and Phones - Item 2 -->
             <div class="category">
                 <h3>Samsung Galaxy S21</h3>
-                <img src="images/laptops/galaxy-s21.jpg" alt="Samsung Galaxy S21" loading="lazy">
+                <div class="image-gallery">
+                    <div class="main-image">
+                        <img src="images/laptops/galaxy1.jpg" alt="Samsung Galaxy S21 front view" loading="lazy">
+                    </div>
+                    <div class="thumbnail-container">
+                        <img src="images/laptops/galaxy1.jpg" alt="Front view" class="thumbnail active" onclick="changeImage(this, 'images/laptops/galaxy1.jpg')">
+                        <img src="images/laptops/galaxy2.jpg" alt="Back view" class="thumbnail" onclick="changeImage(this, 'images/laptops/galaxy2.jpg')">
+                        <img src="images/laptops/galaxy3.jpg" alt="With accessories" class="thumbnail" onclick="changeImage(this, 'images/laptops/galaxy3.jpg')">
+                    </div>
+                </div>
                 <p class="description">128GB storage, Phantom Gray. Includes original charger and protective case.</p>
                 <p class="price">KES 42,000</p>
                 <button onclick="bidItem(this)">Bid</button>
             </div>
-    
+
             <!-- Cars - Item 1 -->
             <div class="category">
                 <h3>Toyota RAV4 2018</h3>
-                <img src="images/cars/rav4.jpg" alt="Toyota RAV4" loading="lazy">
+                <div class="image-gallery">
+                    <div class="main-image">
+                        <img src="images/cars/rav41.jpg" alt="Toyota RAV4 front view" loading="lazy">
+                    </div>
+                    <div class="thumbnail-container">
+                        <img src="images/cars/rav41.jpg" alt="Front view" class="thumbnail active" onclick="changeImage(this, 'images/cars/rav41.jpg')">
+                        <img src="images/cars/rav42.jpg" alt="Side view" class="thumbnail" onclick="changeImage(this, 'images/cars/rav42.jpg')">
+                        <img src="images/cars/rav43.jpg" alt="Interior" class="thumbnail" onclick="changeImage(this, 'images/cars/rav43.jpg')">
+                    </div>
+                </div>
                 <p class="description">White, 2.5L engine, 45,000km, full service history. Excellent condition.</p>
                 <p class="price">KES 1,850,000</p>
                 <button onclick="bidItem(this)">Bid</button>
             </div>
-    
+
             <!-- Cars - Item 2 -->
             <div class="category">
                 <h3>Subaru Outback 2017</h3>
-                <img src="images/cars/outback.jpg" alt="Subaru Outback" loading="lazy">
+                <div class="image-gallery">
+                    <div class="main-image">
+                        <img src="images/cars/outback1.jpg" alt="Subaru Outback front view" loading="lazy">
+                    </div>
+                    <div class="thumbnail-container">
+                        <img src="images/cars/outback1.jpg" alt="Front view" class="thumbnail active" onclick="changeImage(this, 'images/cars/outback1.jpg')">
+                        <img src="images/cars/outback2.jpg" alt="Rear view" class="thumbnail" onclick="changeImage(this, 'images/cars/outback2.jpg')">
+                        <img src="images/cars/outback3.jpg" alt="Dashboard" class="thumbnail" onclick="changeImage(this, 'images/cars/outback3.jpg')">
+                    </div>
+                </div>
                 <p class="description">Blue, 2.5i Premium, 68,000km, all-wheel drive. Well maintained.</p>
                 <p class="price">KES 1,450,000</p>
                 <button onclick="bidItem(this)">Bid</button>
             </div>
-    
+
             <!-- Furniture - Item 1 -->
             <div class="category">
                 <h3>Leather Sofa Set</h3>
-                <img src="images/furniture/sofa.jpg" alt="Leather Sofa Set" loading="lazy">
+                <div class="image-gallery">
+                    <div class="main-image">
+                        <img src="images/furniture/sofa1.jpg" alt="Leather Sofa Set" loading="lazy">
+                    </div>
+                    <div class="thumbnail-container">
+                        <img src="images/furniture/sofa1.jpg" alt="Full set" class="thumbnail active" onclick="changeImage(this, 'images/furniture/sofa1.jpg')">
+                        <img src="images/furniture/sofa2.jpg" alt="Close-up" class="thumbnail" onclick="changeImage(this, 'images/furniture/sofa2.jpg')">
+                        <img src="images/furniture/sofa3.jpg" alt="Corner view" class="thumbnail" onclick="changeImage(this, 'images/furniture/sofa3.jpg')">
+                    </div>
+                </div>
                 <p class="description">3-seater + 2 single seaters, genuine black leather. Excellent condition.</p>
                 <p class="price">KES 35,000</p>
                 <button onclick="bidItem(this)">Bid</button>
             </div>
-    
+
             <!-- Furniture - Item 2 -->
             <div class="category">
                 <h3>Dining Table Set</h3>
-                <img src="images/furniture/dining-set.jpg" alt="Dining Table Set" loading="lazy">
+                <div class="image-gallery">
+                    <div class="main-image">
+                        <img src="images/furniture/dining1.jpg" alt="Dining Table Set" loading="lazy">
+                    </div>
+                    <div class="thumbnail-container">
+                        <img src="images/furniture/dining1.jpg" alt="Full set" class="thumbnail active" onclick="changeImage(this, 'images/furniture/dining1.jpg')">
+                        <img src="images/furniture/dining2.jpg" alt="Table detail" class="thumbnail" onclick="changeImage(this, 'images/furniture/dining2.jpg')">
+                        <img src="images/furniture/dining3.jpg" alt="Chairs detail" class="thumbnail" onclick="changeImage(this, 'images/furniture/dining3.jpg')">
+                    </div>
+                </div>
                 <p class="description">6-seater oak table with matching chairs. Includes table pads.</p>
                 <p class="price">KES 28,000</p>
                 <button onclick="bidItem(this)">Bid</button>
             </div>
-    
+
             <!-- Appliances - Item 1 -->
             <div class="category">
                 <h3>LG Refrigerator</h3>
-                <img src="images/appliances/fridge.jpg" alt="LG Refrigerator" loading="lazy">
+                <div class="image-gallery">
+                    <div class="main-image">
+                        <img src="images/appliances/fridge1.jpg" alt="LG Refrigerator" loading="lazy">
+                    </div>
+                    <div class="thumbnail-container">
+                        <img src="images/appliances/fridge1.jpg" alt="Front view" class="thumbnail active" onclick="changeImage(this, 'images/appliances/fridge1.jpg')">
+                        <img src="images/appliances/fridge2.jpg" alt="Interior" class="thumbnail" onclick="changeImage(this, 'images/appliances/fridge2.jpg')">
+                        <img src="images/appliances/fridge3.jpg" alt="Control panel" class="thumbnail" onclick="changeImage(this, 'images/appliances/fridge3.jpg')">
+                    </div>
+                </div>
                 <p class="description">Double door, 550L capacity, inverter technology. 2 years old.</p>
                 <p class="price">KES 42,000</p>
                 <button onclick="bidItem(this)">Bid</button>
             </div>
-    
+
             <!-- Appliances - Item 2 -->
             <div class="category">
                 <h3>Samsung Washing Machine</h3>
-                <img src="images/appliances/washing-machine.jpg" alt="Samsung Washing Machine" loading="lazy">
+                <div class="image-gallery">
+                    <div class="main-image">
+                        <img src="images/appliances/washing1.jpg" alt="Samsung Washing Machine" loading="lazy">
+                    </div>
+                    <div class="thumbnail-container">
+                        <img src="images/appliances/washing1.jpg" alt="Front view" class="thumbnail active" onclick="changeImage(this, 'images/appliances/washing1.jpg')">
+                        <img src="images/appliances/washing2.jpg" alt="Control panel" class="thumbnail" onclick="changeImage(this, 'images/appliances/washing2.jpg')">
+                        <img src="images/appliances/washing3.jpg" alt="Drum view" class="thumbnail" onclick="changeImage(this, 'images/appliances/washing3.jpg')">
+                    </div>
+                </div>
                 <p class="description">Front load, 8kg capacity, eco bubble technology. Excellent working condition.</p>
                 <p class="price">KES 38,000</p>
                 <button onclick="bidItem(this)">Bid</button>
@@ -142,7 +231,7 @@
             <label for="itemDescription">Description:</label>
             <textarea id="itemDescription" name="itemDescription" required minlength="10"></textarea>
 
-            <label for="itemImages">Upload Images (Max 5MB):</label>
+            <label for="itemImages">Upload Images (Max 5MB each):</label>
             <input type="file" id="itemImages" name="itemImages" accept="image/*" multiple>
 
             <div class="form-status" id="formStatus"></div>
@@ -155,16 +244,16 @@
         <p>Location: Bahati, Nakuru</p>
         <ul>
             <li><a href="https://www.facebook.com/share/1BNwoFsvXM/?mibextid=qi2Omg" target="_blank" rel="noopener noreferrer">
-                <img src="images/facebook.jpg" alt="Facebook" class="social-icon"> Facebook
+                <img src="images/social/facebook.jpg" alt="Facebook" class="social-icon"> Facebook
             </a></li>
             <li><a href="https://wa.me/+254721249887" target="_blank" rel="noopener noreferrer">
-                <img src="images/whatsapp.jpg" alt="WhatsApp" class="social-icon"> WhatsApp
+                <img src="images/social/whatsapp.jpg" alt="WhatsApp" class="social-icon"> WhatsApp
             </a></li>
             <li><a href="mailto:chronicsasiyo@gmail.com">
-                <img src="images/email.jpg" alt="Email" class="social-icon"> Email
+                <img src="images/social/email.jpg" alt="Email" class="social-icon"> Email
             </a></li>
             <li><a href="tel:+254721249887">
-                <img src="images/phone.jpg" alt="Phone" class="social-icon"> Call: +254 721249887
+                <img src="images/social/phone.jpg" alt="Phone" class="social-icon"> Call: +254 721249887
             </a></li>
         </ul>
     </section>

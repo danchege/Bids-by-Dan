@@ -75,6 +75,28 @@ function bidItem(button) {
                      `Asking Price: ${itemPrice}\nMy Bid: KES ${bidAmount}\n\n` +
                      `Please let me know if my bid is acceptable.\n\nThank you.`;
         
-        window.location.href = `mailto:chronicsasiyo@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = `mailto:danychege28@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }
+}
+
+function changeImage(thumbnailElement, newImageSrc) {
+    // Remove active class from all thumbnails
+    const thumbnails = thumbnailElement.parentElement.querySelectorAll('.thumbnail');
+    thumbnails.forEach(thumb => thumb.classList.remove('active'));
+    
+    // Add active class to clicked thumbnail
+    thumbnailElement.classList.add('active');
+    
+    // Change main image
+    const mainImageContainer = thumbnailElement.closest('.image-gallery').querySelector('.main-image');
+    mainImageContainer.innerHTML = `<img src="${newImageSrc}" alt="${thumbnailElement.alt}" loading="lazy">`;
+    
+    // Add hover effect to new image
+    mainImageContainer.querySelector('img').style.transition = 'transform 0.5s ease';
+    mainImageContainer.querySelector('img').addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.03)';
+    });
+    mainImageContainer.querySelector('img').addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+    });
 }
