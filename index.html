@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CHRONICS EMPIRE - Trade of new and second-hand items in Nakuru, Kenya">
     <title>CHRONICS EMPIRE</title>
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
-        <h1 style="color: rgb(238, 176, 60)">WELCOME</h1>
-        <img src="logo/chronics empire logo.png" alt="Profile Image" class="profile-img">
+        <h1>WELCOME</h1>
+        <img src="logo/chronics empire logo.png" alt="CHRONICS EMPIRE Logo" class="profile-img">
         <nav>
             <a href="#about">About</a>
             <a href="#categories">Categories</a>
@@ -19,7 +21,7 @@
     </header>
 
     <section id="about">
-        <h2 style="color: rgb(238, 176, 60)" >ABOUT US</h2>
+        <h2>ABOUT US</h2>
         <div class="about-content">
             <p>We specialize in the trade of both new and second-hand items.</p>
             <p>Our commitment to excellence ensures customer satisfaction.</p>
@@ -28,140 +30,104 @@
     </section>
 
     <section id="categories">
-        <h2 style="color: rgb(238, 176, 60)">ITEMS FOR SALE</h2>
+        <h2>ITEMS FOR SALE</h2>
         <div class="category-list">
             <!-- Electronics -->
             <div class="category">
-                <h3 style="color: rgb(238, 176, 60)">Electronics</h3>
-                <img src="electronics.jpg" alt="Electronics">
-                <p class="description">Description: High-quality second-hand.</p>
-                <p class="price">Asking Price: KES 20,000 - KES 100,000</p>
-                <button onclick="bidItem(this)">Bid</button>
-            </div>
-            <div class="category">
-                <h3 style="color: rgb(238, 176, 60)">Electronics</h3>
-                <img src="electronics.jpg" alt="Electronics">
-                <p class="description">Description: High-quality second-hand.</p>
-                <p class="price">Asking Price: KES 20,000 - KES 100,000</p>
+                <h3>Electronics</h3>
+                <img src="images/electronics.jpg" alt="Electronics" loading="lazy">
+                <p class="description">High-quality second-hand electronics including TVs, speakers, and home theater systems.</p>
+                <p class="price">KES 20,000 - KES 100,000</p>
                 <button onclick="bidItem(this)">Bid</button>
             </div>
 
             <!-- Laptops and Phones -->
             <div class="category">
-                <h3 style="color: rgb(238, 176, 60)">Laptops and Phones</h3>
-                <img src="laptops.jpg" alt="Laptops and Phones">
-                <p class="description">Description: High-quality second-hand laptops and phones.</p>
-                <p class="price">Asking Price: KES 30,000 - KES 150,000</p>
-                <button onclick="bidItem(this)">Bid</button>
-            </div>
-            <div class="category">
-                <h3 style="color: rgb(238, 176, 60)">Laptops and Phones</h3>
-                <img src="laptops.jpg" alt="Laptops and Phones">
-                <p class="description">Description: High-quality second-hand laptops and phones.</p>
-                <p class="price">Asking Price: KES 30,000 - KES 150,000</p>
+                <h3>Laptops and Phones</h3>
+                <img src="images/laptops.jpg" alt="Laptops and Phones" loading="lazy">
+                <p class="description">High-quality second-hand laptops and phones from top brands.</p>
+                <p class="price">KES 30,000 - KES 150,000</p>
                 <button onclick="bidItem(this)">Bid</button>
             </div>
 
             <!-- Cars -->
             <div class="category">
-                <h3 style="color: rgb(238, 176, 60)">Cars</h3>
-                <img src="cars.jpg" alt="Cars">
-                <p class="description">Description: Pre-owned cars in excellent condition.</p>
-                <p class="price">Asking Price: KES 500,000 - KES 2,000,000</p>
+                <h3>Cars</h3>
+                <img src="images/cars.jpg" alt="Cars" loading="lazy">
+                <p class="description">Pre-owned cars in excellent condition with full service history.</p>
+                <p class="price">KES 500,000 - KES 2,000,000</p>
                 <button onclick="bidItem(this)">Bid</button>
             </div>
-            <div class="category">
-                <h3 style="color: rgb(238, 176, 60)">Cars</h3>
-                <img src="cars.jpg" alt="Cars">
-                <p class="description">Description: Pre-owned cars in excellent condition.</p>
-                <p class="price">Asking Price: KES 500,000 - KES 2,000,000</p>
-                <button onclick="bidItem(this)">Bid</button>
-            </div>
-
 
             <!-- Furniture -->
             <div class="category">
-                <h3 style="color: rgb(238, 176, 60)">Furniture</h3>
-                <img src="furniture.jpg" alt="Furniture">
-                <p class="description">Description: Stylish and durable furniture.</p>
-                <p class="price">Asking Price: KES 5,000 - KES 50,000</p>
-                <button onclick="bidItem(this)">Bid</button>
-            </div>
-            <div class="category">
-                <h3 style="color: rgb(238, 176, 60)">Furniture</h3>
-                <img src="furniture.jpg" alt="Furniture">
-                <p class="description">Description: Stylish and durable furniture.</p>
-                <p class="price">Asking Price: KES 5,000 - KES 50,000</p>
+                <h3>Furniture</h3>
+                <img src="images/furniture.jpg" alt="Furniture" loading="lazy">
+                <p class="description">Stylish and durable furniture for home and office.</p>
+                <p class="price">KES 5,000 - KES 50,000</p>
                 <button onclick="bidItem(this)">Bid</button>
             </div>
 
             <!-- Appliances -->
             <div class="category">
-                <h3 style="color: rgb(238, 176, 60)">Appliances</h3>
-                <img src="appliances.jpg" alt="Appliances">
-                <p class="description">Description: Reliable home appliances.</p>
-                <p class="price">Asking Price: KES 10,000 - KES 80,000</p>
+                <h3>Appliances</h3>
+                <img src="images/appliances.jpg" alt="Appliances" loading="lazy">
+                <p class="description">Reliable home appliances including refrigerators, washing machines, and cookers.</p>
+                <p class="price">KES 10,000 - KES 80,000</p>
                 <button onclick="bidItem(this)">Bid</button>
             </div>
-            <div class="category">
-                <h3 style="color: rgb(238, 176, 60)">Appliances</h3>
-                <img src="appliances.jpg" alt="Appliances">
-                <p class="description">Description: Reliable home appliances.</p>
-                <p class="price">Asking Price: KES 10,000 - KES 80,000</p>
-                <button onclick="bidItem(this)">Bid</button>
-            </div>
-            
         </div>
     </section>
 
     <section id="sell">
-        <h2 style="color: rgb(238, 176, 60)" >SELL TO US</h2>
-        <form id="sellForm">
+        <h2>SELL TO US</h2>
+        <form id="sellForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
             <label for="userName">Your Name:</label>
-            <input type="text" id="userName" name="userName" required>
+            <input type="text" id="userName" name="userName" required minlength="2">
 
             <label for="userEmail">Your Email:</label>
             <input type="email" id="userEmail" name="userEmail" required>
 
             <label for="userPhone">Your Phone Number:</label>
-            <input type="tel" id="userPhone" name="userPhone" required>
+            <input type="tel" id="userPhone" name="userPhone" required pattern="[0-9]{10,15}">
 
             <label for="itemName">Item Name:</label>
             <input type="text" id="itemName" name="itemName" required>
 
             <label for="itemDescription">Description:</label>
-            <textarea id="itemDescription" name="itemDescription" required></textarea>
+            <textarea id="itemDescription" name="itemDescription" required minlength="10"></textarea>
 
-            <label for="itemImages">Upload Images:</label>
-            <input type="file" id="itemImages" name="itemImages" accept="image/*" multiple required>
+            <label for="itemImages">Upload Images (Max 5MB):</label>
+            <input type="file" id="itemImages" name="itemImages" accept="image/*" multiple>
 
-            <button type="submit">Submit</button>
+            <div class="form-status" id="formStatus"></div>
+            <button type="submit" id="submitBtn">Submit</button>
         </form>
     </section>
 
     <section id="contact">
-        <h2 style="color: rgb(238, 176, 60)" >Contact us</h2>
-        <p>Location:Bahati, Nakuru </p>
-        <section id="contact">
-            <ul>
-                <li><a href="https://www.facebook.com/share/1BNwoFsvXM/?mibextid=qi2Omg" target="_blank"><img src="images/facebook.jpg" alt="Facebook" class="social-icon"> Facebook</a></li>
-                <li><a href="https://wa.me/+254721249887" target="_blank"><img src="images/whatsApp.jpg" alt="WhatsApp" class="social-icon"> WhatsApp</a></li>
-                <li><a href="mailto:chronicsasiyo@gmail.com" target="_blank"><img src="images/email.jpg" alt="Email" class="social-icon"> Email</a></li>
-                <li><a href="tell:+25421249887"><img src="images/phone.jpg" alt="Phone" class="social-icon">Call on: +254 721249887</a></li>
-            </ul>
-        </section>
+        <h2>CONTACT US</h2>
+        <p>Location: Bahati, Nakuru</p>
+        <ul>
+            <li><a href="https://www.facebook.com/share/1BNwoFsvXM/?mibextid=qi2Omg" target="_blank" rel="noopener noreferrer">
+                <img src="images/facebook.jpg" alt="Facebook" class="social-icon"> Facebook
+            </a></li>
+            <li><a href="https://wa.me/+254721249887" target="_blank" rel="noopener noreferrer">
+                <img src="images/whatsapp.jpg" alt="WhatsApp" class="social-icon"> WhatsApp
+            </a></li>
+            <li><a href="mailto:chronicsasiyo@gmail.com">
+                <img src="images/email.jpg" alt="Email" class="social-icon"> Email
+            </a></li>
+            <li><a href="tel:+254721249887">
+                <img src="images/phone.jpg" alt="Phone" class="social-icon"> Call: +254 721249887
+            </a></li>
+        </ul>
     </section>
 
     <footer>
-        <p>&copy; 2025 CHRONICS EMPIRE. All rights reserved.</p>
+        <p>&copy; <span id="currentYear"></span> Daniel Chege. All rights reserved.</p>
     </footer>
 
-    <script src="item.js"></script>
-    <script src="itemcontroller.js"></script>
-    <script src="itemroutes.js"></script>
-    <script src="server.js"></script>
-    <script src="user.js"></script>
     <script src="script.js"></script>
-
 </body>
 </html>
