@@ -261,3 +261,278 @@ function changeImage(thumbnailElement, newImageSrc) {
         this.style.transform = 'scale(1)';
     });
 }
+
+// Load items when page opens
+document.addEventListener('DOMContentLoaded', function() {
+    loadItems();
+    setupAdminPanel();
+  });
+  
+  // ======================
+  // ADMIN PANEL FUNCTIONS
+  // ======================
+  
+  function setupAdminPanel() {
+    const form = document.getElementById('adminItemForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      addItemViaAdmin();
+    });
+    refreshItemsList();
+  }
+  
+  function addItemViaAdmin() {
+    // Get form values
+    const title = document.getElementById('adminItemTitle').value;
+    const price = parseFloat(document.getElementById('adminItemPrice').value);
+    const description = document.getElementById('adminItemDesc').value;
+    const imageFiles = document.getElementById('adminItemImages').files;
+  
+    // Validate
+    if (!title || !price || !description || imageFiles.length === 0) {
+      alert("Please fill all fields and upload at least one image!");
+      return;
+    }
+  
+    // Convert images to Base64
+    const imagePromises = Array.from(imageFiles).map(file => {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target.result);
+        reader.readAsDataURL(file);
+      });
+    });
+  
+    // Save item
+    Promise.all(imagePromises).then(images => {
+      const newItem = {
+        title,
+        price,
+        description,
+        images
+      };
+  
+      const existingItems = JSON.parse(localStorage.getItem('marketplaceItems')) || [];
+      existingItems.push(newItem);
+      localStorage.setItem('marketplaceItems', JSON.stringify(existingItems));
+  
+      // Refresh displays
+      loadItems();
+      refreshItemsList();
+      document.getElementById('adminItemForm').reset();
+    });
+  }
+  
+  function refreshItemsList() {
+    const items = JSON.parse(localStorage.getItem('marketplaceItems')) || [];
+    const container = document.getElementById('itemsList');
+    container.innerHTML = '';
+  
+    items.forEach((item, index) => {
+      const itemDiv = document.createElement('div');
+      itemDiv.style.background = 'rgba(255,255,255,0.1)';
+      itemDiv.style.padding = '10px';
+      itemDiv.style.margin = '5px 0';
+      itemDiv.style.borderRadius = '5px';
+      itemDiv.style.display = 'flex';
+      itemDiv.style.justifyContent = 'space-between';
+      
+      itemDiv.innerHTML = `
+        <div>
+          <strong>${item.title}</strong> (KES ${item.price})
+        </div>
+        <button onclick="deleteItem(${index})" style="background: #ff4444; color: white; border: none; padding: 2px 10px; border-radius: 3px; cursor: pointer;">Delete</button>
+      `;
+      container.appendChild(itemDiv);
+    });
+  }
+  
+  function deleteItem(index) {
+    const items = JSON.parse(localStorage.getItem('marketplaceItems')) || [];
+    items.splice(index, 1);
+    localStorage.setItem('marketplaceItems', JSON.stringify(items));
+    loadItems();
+    refreshItemsList();
+  }
+  function deleteItem(index) {
+    if (!confirm("Permanently delete this item?")) return;
+    
+    // Rest of the delete logic...
+  }
+  
+  // ======================
+  // MAIN PAGE FUNCTIONS
+  // ======================
+  
+  function loadItems() {
+    const storedItems = localStorage.getItem('marketplaceItems');
+    if (storedItems) {
+      const items = JSON.parse(storedItems);
+      renderItems(items);
+    }
+  }
+  
+  function renderItems(items) {
+    const categoryList = document.querySelector('.category-list');
+    if (!categoryList) return;
+    
+    categoryList.innerHTML = items.map(item => `
+      <div class="category">
+        <h3>${item.title}</h3>
+        <div class="image-gallery">
+          <div class="main-image">
+            <img src="${item.images[0]}" alt="${item.title}" loading="lazy">
+          </div>
+          <div class="thumbnail-container">
+            ${item.images.map(img => `
+              <img src="${img}" alt="${item.title}" class="thumbnail" onclick="changeImage(this, '${img}')">
+            `).join('')}
+          </div>
+        </div>
+        <p class="description">${item.description}</p>
+        <p class="price">KES ${item.price.toLocaleString()}</p>
+        <button onclick="bidItem(this)">Bid</button>
+      </div>
+    `).join('');
+  }
+
+  // Add these functions:
+
+// 1. Delete Function (Fixed)
+function deleteItem(index) {
+    if (!confirm("Delete this item permanently?")) return;
+    
+    let items = JSON.parse(localStorage.getItem('marketplaceItems')) || [];
+    
+    // Remove the item
+    items.splice(index, 1);
+    
+    // Save back to storage
+    localStorage.setItem('marketplaceItems', JSON.stringify(items));
+    
+    // Refresh displays
+    loadItems();
+    refreshItemsList();
+  }
+  
+  // 2. Refresh Item List (Fixed)
+  function refreshItemsList() {
+    const items = JSON.parse(localStorage.getItem('marketplaceItems')) || [];
+    const container = document.getElementById('itemsList');
+    container.innerHTML = '';
+  
+    items.forEach((item, index) => {
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'admin-item';
+      itemDiv.innerHTML = `
+        <span>${item.title} (KES ${item.price})</span>
+        <button onclick="deleteItem(${index})">Delete</button>
+      `;
+      container.appendChild(itemDiv);
+    });
+  }
+  
+  // 3. Initialize Admin Panel
+  function initAdminPanel() {
+    // Press '$' to toggle panel
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '$') {
+        const panel = document.getElementById('adminPanel');
+        panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+        refreshItemsList();
+      }
+    });
+  }
+  
+  // Call this when page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    loadItems();
+    initAdminPanel();
+  });
+
+  // Add to your existing script.js
+
+// 1. Edit Button in Item List
+function refreshItemsList() {
+    const items = JSON.parse(localStorage.getItem('marketplaceItems')) || [];
+    const container = document.getElementById('itemsList');
+    container.innerHTML = '';
+  
+    items.forEach((item, index) => {
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'admin-item';
+      itemDiv.innerHTML = `
+        <span>${item.title} (KES ${item.price})</span>
+        <div>
+          <button onclick="startEdit(${index})">Edit</button>
+          <button onclick="deleteItem(${index})">Delete</button>
+        </div>
+      `;
+      container.appendChild(itemDiv);
+    });
+  }
+  
+  // 2. Start Editing an Item
+  function startEdit(index) {
+    const items = JSON.parse(localStorage.getItem('marketplaceItems')) || [];
+    const item = items[index];
+    
+    document.getElementById('editItemIndex').value = index;
+    document.getElementById('editItemTitle').value = item.title;
+    document.getElementById('editItemPrice').value = item.price;
+    document.getElementById('editItemDesc').value = item.description;
+    
+    document.getElementById('editItemForm').style.display = 'block';
+    document.getElementById('itemsList').style.display = 'none';
+  }
+  
+  // 3. Cancel Editing
+  function cancelEdit() {
+    document.getElementById('editItemForm').style.display = 'none';
+    document.getElementById('itemsList').style.display = 'block';
+    document.getElementById('editForm').reset();
+  }
+  
+  // 4. Save Edited Item
+  document.getElementById('editForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const index = document.getElementById('editItemIndex').value;
+    const title = document.getElementById('editItemTitle').value;
+    const price = parseFloat(document.getElementById('editItemPrice').value);
+    const description = document.getElementById('editItemDesc').value;
+    const imageFiles = document.getElementById('editItemImages').files;
+  
+    const items = JSON.parse(localStorage.getItem('marketplaceItems')) || [];
+    const item = items[index];
+  
+    // Update basic fields
+    item.title = title;
+    item.price = price;
+    item.description = description;
+  
+    // Process new images if added
+    if (imageFiles.length > 0) {
+      const imagePromises = Array.from(imageFiles).map(file => {
+        return new Promise((resolve) => {
+          const reader = new FileReader();
+          reader.onload = (e) => resolve(e.target.result);
+          reader.readAsDataURL(file);
+        });
+      });
+  
+      Promise.all(imagePromises).then(newImages => {
+        item.images = [...item.images, ...newImages].slice(0, 3); // Keep max 3 images
+        saveAndRefresh(items);
+      });
+    } else {
+      saveAndRefresh(items);
+    }
+  });
+  
+  function saveAndRefresh(items) {
+    localStorage.setItem('marketplaceItems', JSON.stringify(items));
+    loadItems();
+    refreshItemsList();
+    cancelEdit();
+  }

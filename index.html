@@ -213,6 +213,32 @@
         </div>
     </section>
 
+    <!-- Bid Form Modal -->
+<div id="bidModal" style="display:none;" class="modal-overlay">
+    <form id="bidForm" action="https://formspree.io/f/mzzelkzy" method="POST">
+      <h3>Submit Your Bid</h3>
+      <input type="hidden" name="_subject" value="New Bid Submission">
+      <input type="hidden" name="item_name" id="bidItemName">
+      <input type="hidden" name="item_price" id="bidItemPrice">
+  
+      <label for="bidderName">Your Name:</label>
+      <input type="text" id="bidderName" name="name" required>
+  
+      <label for="bidderEmail">Your Email:</label>
+      <input type="email" id="bidderEmail" name="email" required>
+  
+      <label for="bidderEmail">Phone Number:</label>
+      <input type="number" id="bidderphone" name="phone" required>
+  
+      <label for="bidAmount">Your Bid (KES):</label>
+      <input type="number" id="bidAmount" name="bid_amount" required>
+  
+      <div class="form-status" id="bidFormStatus"></div>
+      <button type="submit" id="bidSubmitBtn">Submit Bid</button>
+      <button type="button" onclick="closeBidModal()">Cancel</button>
+    </form>
+  </div>
+
     <section id="sell">
         <h2>SELL TO US</h2>
         <form id="sellForm" action="https://formspree.io/f/mzzelkzy" method="POST" enctype="multipart/form-data">
@@ -269,31 +295,65 @@
 
     <script src="script.js"></script>
 
-<!-- Bid Form Modal -->
-<div id="bidModal" style="display:none;" class="modal-overlay">
-  <form id="bidForm" action="https://formspree.io/f/mzzelkzy" method="POST">
-    <h3>Submit Your Bid</h3>
-    <input type="hidden" name="_subject" value="New Bid Submission">
-    <input type="hidden" name="item_name" id="bidItemName">
-    <input type="hidden" name="item_price" id="bidItemPrice">
+<!-- Admin Panel (Hidden by Default) -->
+<div id="adminPanel" style="display: none; background: rgba(0,0,0,0.9); padding: 20px; border: 2px solid rgb(91, 171, 224); margin: 20px auto; max-width: 800px; border-radius: 10px;">
+    <h2 style="color: rgb(91, 171, 224);">Admin Panel</h2>
+    
+    <!-- Add Item Form -->
+    <form id="adminItemForm">
+      <label style="display: block; margin: 10px 0; color: rgb(91, 171, 224);">
+        Item Name: <input type="text" id="adminItemTitle" required style="width: 100%; padding: 8px;">
+      </label>
+      
+      <label style="display: block; margin: 10px 0; color: rgb(91, 171, 224);">
+        Price (KES): <input type="number" id="adminItemPrice" required style="width: 100%; padding: 8px;">
+      </label>
+      
+      <label style="display: block; margin: 10px 0; color: rgb(91, 171, 224);">
+        Description: <textarea id="adminItemDesc" required style="width: 100%; padding: 8px;"></textarea>
+      </label>
+      
+      <label style="display: block; margin: 10px 0; color: rgb(91, 171, 224);">
+        Images (3 max): <input type="file" id="adminItemImages" accept="image/*" multiple>
+      </label>
+      
+      <button type="submit" style="background: rgb(91, 171, 224); color: black; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Add Item</button>
+    </form>
+  
+    <!-- Current Items List -->
+    <div id="currentItems" style="margin-top: 20px;">
+      <h3 style="color: rgb(91, 171, 224);">Current Items</h3>
+      <div id="itemsList"></div>
+    </div>
 
-    <label for="bidderName">Your Name:</label>
-    <input type="text" id="bidderName" name="name" required>
-
-    <label for="bidderEmail">Your Email:</label>
-    <input type="email" id="bidderEmail" name="email" required>
-
-    <label for="bidderEmail">Phone Number:</label>
-    <input type="number" id="bidderphone" name="phone" required>
-
-    <label for="bidAmount">Your Bid (KES):</label>
-    <input type="number" id="bidAmount" name="bid_amount" required>
-
-    <div class="form-status" id="bidFormStatus"></div>
-    <button type="submit" id="bidSubmitBtn">Submit Bid</button>
-    <button type="button" onclick="closeBidModal()">Cancel</button>
-  </form>
+    <div id="editItemForm" style="display: none;">
+        <h3>Edit Item</h3>
+        <form id="editForm">
+          <input type="hidden" id="editItemIndex">
+          <label>Name: <input type="text" id="editItemTitle" required></label>
+          <label>Price: <input type="number" id="editItemPrice" required></label>
+          <label>Description: <textarea id="editItemDesc" required></textarea></label>
+          <label>New Images (optional): <input type="file" id="editItemImages" accept="image/*" multiple></label>
+          <button type="submit">Save Changes</button>
+          <button type="button" onclick="cancelEdit()">Cancel</button>
+        </form>
+    </div>
 </div>
+  
+  <!-- Press 'A' to show/hide panel -->
+  <script>
+    document.addEventListener('keypress', (e) => {
+      if (e.key === '^') {
+        const panel = document.getElementById('adminPanel');
+        panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+      }
+    });
+  </script>
+  <!-- Admin Panel -->
+    <div id="adminPanel" style="display:none;">
+        <h2>Admin Panel</h2>
+        <div id="itemsList"></div>
+    </div>
 </body>
 
 </html>
