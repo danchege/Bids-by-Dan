@@ -432,14 +432,15 @@ function deleteItem(index) {
     });
   }
   
-  // 3. Initialize Admin Panel
-  function initAdminPanel() {
-    // Press '$' to toggle panel
+//   // 3. Initialize Admin Panel
+function initAdminPanel() {
     document.addEventListener('keydown', (e) => {
-      if (e.key === '$') {
+      // Ctrl+Shift+D combination
+      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'd') {
         const panel = document.getElementById('adminPanel');
         panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
         refreshItemsList();
+        e.preventDefault(); // Prevent browser "bookmark" shortcut
       }
     });
   }
@@ -450,7 +451,6 @@ function deleteItem(index) {
     initAdminPanel();
   });
 
-  // Add to your existing script.js
 
 // 1. Edit Button in Item List
 function refreshItemsList() {
