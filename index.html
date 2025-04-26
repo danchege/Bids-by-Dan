@@ -223,31 +223,33 @@
             </div>
         </section>
 
-        <!-- Bid Form Modal -->
-        <div id="bidModal" style="display:none;" class="modal-overlay">
-            <form id="bidForm" action="https://formspree.io/f/mzzelkzy" method="POST">
-              <h3>Submit Your Bid</h3>
-              <input type="hidden" name="_subject" value="New Bid Submission">
-              <input type="hidden" name="item_name" id="bidItemName">
-              <input type="hidden" name="item_price" id="bidItemPrice">
-  
-              <label for="bidderName">Your Name:</label>
-              <input type="text" id="bidderName" name="name" required>
-  
-              <label for="bidderEmail">Your Email:</label>
-              <input type="email" id="bidderEmail" name="email" required>
-  
-              <label for="bidderEmail">Phone Number:</label>
-              <input type="number" id="bidderphone" name="phone" required>
-  
-              <label for="bidAmount">Your Bid (KES):</label>
-              <input type="number" id="bidAmount" name="bid_amount" required>
-  
-              <div class="form-status" id="bidFormStatus"></div>
-              <button type="submit" id="bidSubmitBtn">Submit Bid</button>
-              <button type="button" onclick="closeBidModal()">Cancel</button>
+        <div id="bidModal" class="modal-overlay" style="display: none;">
+            <form id="bidForm" action="https://formspree.io/f/xaygpqzj" method="POST">
+                <h3>Place Your Bid</h3>
+                
+                <input type="hidden" id="bidItemName" name="item_name">
+                <input type="hidden" id="bidItemPrice" name="current_price">
+                
+                <label for="bidderName">Your Name:</label>
+                <input type="text" id="bidderName" name="bidder_name" required>
+                
+                <label for="bidderEmail">Your Email:</label>
+                <input type="email" id="bidderEmail" name="bidder_email" required>
+                
+                <label for="bidderPhone">Your Phone:</label>
+                <input type="tel" id="bidderPhone" name="bidder_phone" required pattern="[0-9]{10,15}">
+                
+                <label for="bidAmount">Your Bid Amount (KES):</label>
+                <input type="number" id="bidAmount" name="bid_amount" required min="0" step="100">
+                
+                <div class="form-status" id="bidFormStatus"></div>
+                
+                <div class="button-group">
+                    <button type="submit" id="bidSubmitBtn">Place Bid</button>
+                    <button type="button" onclick="closeBidModal()">Cancel</button>
+                </div>
             </form>
-          </div>
+        </div>
 
         <section id="sell">
             <h2>SELL TO US</h2>

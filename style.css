@@ -451,6 +451,96 @@ footer {
     color: #c53030;
 }
 
+/* Bid Modal Styles */
+#bidModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(44, 82, 130, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#bidForm {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 500px;
+    box-shadow: var(--shadow-effect);
+}
+
+#bidForm h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#bidForm label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+#bidForm input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+#bidForm input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+    outline: none;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.button-group button {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+.button-group button[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.button-group button[type="button"] {
+    background-color: #e2e8f0;
+    color: var(--text-color);
+}
+
+.button-group button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-effect);
+}
+
+.button-group button[type="submit"]:hover {
+    background-color: rgb(49, 130, 206);
+}
+
+.button-group button[type="button"]:hover {
+    background-color: #cbd5e0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     header h1 {
