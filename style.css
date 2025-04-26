@@ -194,7 +194,7 @@ button:hover {
 
 .main-image {
     width: 100%;
-    height: 200px;
+    height: 300px;
     overflow: hidden;
     border-radius: var(--border-radius);
     margin-bottom: 0.5rem;
@@ -213,29 +213,27 @@ button:hover {
 
 .thumbnail-container {
     display: flex;
-    justify-content: center;
     gap: 0.5rem;
-    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .thumbnail {
-    width: 50px;
-    height: 50px;
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: cover;
     border-radius: 5px;
     cursor: pointer;
-    object-fit: cover;
     border: 2px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.thumbnail:hover {
-    border-color: var(--primary-color);
-    transform: scale(1.1);
+    transition: var(--transition);
 }
 
 .thumbnail.active {
     border-color: var(--primary-color);
-    box-shadow: 0 0 8px var(--primary-color);
+}
+
+.thumbnail:hover {
+    transform: scale(1.1);
+    border-color: var(--primary-color);
 }
 
 #sell {
@@ -565,4 +563,3 @@ footer {
         text-align: center;
     }
 }
-
